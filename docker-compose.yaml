@@ -2,6 +2,7 @@ version: "3"
 services:
   springboot:
     image: younes941/5winyounes:latest
+    restart: unless-stopped
     ports:
       - "8089:8089"
    
@@ -11,6 +12,7 @@ services:
   mysqldb:
     image: mysql:8
     container_name: db_mysql
+    restart: unless-stopped
     ports:
       - 3306:3306
   
