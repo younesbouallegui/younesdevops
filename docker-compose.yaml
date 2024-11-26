@@ -1,0 +1,20 @@
+version: "3"
+services:
+  springboot:
+    image: younes941/5winyounes:latest
+    ports:
+      - "8089:8089"
+   
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8
+    container_name: db_mysql
+    ports:
+      - 3306:3306
+  
+    environment:
+      - MYSQL_DATABASE=foyerdb
+      - DATABASE_DRIVER=com.mysql.cj.jdbc.Driver
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
